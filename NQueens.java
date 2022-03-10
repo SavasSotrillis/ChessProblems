@@ -9,7 +9,7 @@ public class NQueens
 	{
 		nextColumnBool=false;
 		c++;
-		if(c==8)
+		if(c==sizeBoard)
 		{
 			printBool=true;
 			return;
@@ -22,7 +22,7 @@ public class NQueens
 	{
 		nextRowBool=false;
 		r++;
-		if(r>=8)
+		if(r>=sizeBoard)
 		{
 			backtrackBool=true;
 			return;
@@ -44,7 +44,7 @@ public class NQueens
 			}
 		}
          
-		for (int i = 1; r + i < 8 && c - i >= 0; i++)  // down-diagonal test
+		for (int i = 1; r + i < sizeBoard && c - i >= 0; i++)  // down-diagonal test
 		{
 			if (board[r+i][c-i] == 1)
 			{
@@ -78,9 +78,9 @@ public class NQueens
 		solutions++;
 		System.out.println("Solution number " + solutions);
 		
-		for(int i=0; i<8; i++)
+		for(int i=0; i<sizeBoard; i++)
 		{
-			for(int j=0; j<8; j++)
+			for(int j=0; j<sizeBoard; j++)
 			{
 				System.out.print(board[i][j]);
 			}
@@ -96,7 +96,8 @@ public class NQueens
 	{
 		Scanner input=new Scanner(System.in);
 		sizeBoard=input.nextInt();
-		board=new int[8][8];
+		System.out.println("Enter Board size");
+		board=new int[sizeBoard][sizeBoard];
 		c=0;
 		r=-1;
 		board[0][0]=1;
